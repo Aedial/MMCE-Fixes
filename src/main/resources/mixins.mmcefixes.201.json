@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.mmcefixes.mixin",
+  "refmap": "${mixin_refmap}",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "glue.MixinTileItemBus",
+    "glue.MixinBlockBus"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "multipart": [
+        {
+            "when": { "size": "tiny" },
+            "apply": { "model": "modularmachinery:blockoutputbus_tiny" }
+        },
+        {
+            "when": { "size": "small" },
+            "apply": { "model": "modularmachinery:blockoutputbus_small" }
+        },
+        {
+            "when": { "size": "normal" },
+            "apply": { "model": "modularmachinery:blockoutputbus_normal" }
+        },
+        {
+            "when": { "size": "reinforced" },
+            "apply": { "model": "modularmachinery:blockoutputbus_reinforced" }
+        },
+        {
+            "when": { "size": "big" },
+            "apply": { "model": "modularmachinery:blockoutputbus_big" }
+        },
+        {
+            "when": { "size": "huge" },
+            "apply": { "model": "modularmachinery:blockoutputbus_huge" }
+        },
+        {
+            "when": { "size": "ludicrous" },
+            "apply": { "model": "modularmachinery:blockoutputbus_ludicrous" }
+        },
+        {
+            "when": { "glued": "true" },
+            "apply": { "model": "mmcefixes:blockbus_glued_overlay" }
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+# Glue
+item.mmcefixes.tube_of_glue.name=Tube of Glue
+item.mmcefixes.solvent.name=Solvent
+mmcefixes.glue.disabled=Automatic item I/O disabled
+mmcefixes.glue.enabled=Automatic item I/O enabled
+mmcefixes.glue.already_disabled=Automatic item I/O is already disabled
+mmcefixes.glue.already_enabled=Automatic item I/O is already enabled
+mmcefixes.glue.disable=§bRight-click an item hatch to disable automatic item I/O
+mmcefixes.glue.enable=§bRight-click an item hatch to enable automatic item I/O back
+mmcefixes.glue.top=Automatic I/O disabled by glue
+
+# Polling
+mmcefixes.polling.name=Polling Rate
+mmcefixes.polling.adaptive=Adaptive
+mmcefixes.polling.current=Current interval: §a%s
+mmcefixes.polling.current_adaptive=Adaptive: §e%s-%s§7 ticks
+mmcefixes.polling.tooltip=Set a §afixed§7 polling interval, or §e0§7 for adaptive polling
+mmcefixes.polling.adaptive_warning=§eAdaptive polling is laggy, prefer a fixed interval
+
+# Configs
+mmcefixes.config.title=MMCE Fixes Configuration
+mmcefixes.config.general=General
+mmcefixes.config.general.tooltip=General settings for item hatches and ME hatch polling and capacity
+mmcefixes.config.mixins=Features
+mmcefixes.config.mixins.tooltip=Enable each feature independently. Feature changes require a restart
+mmcefixes.config.gluedByDefault=Glue new item hatches
+mmcefixes.config.gluedByDefault.tooltip=Glue newly placed item hatches by default. Older hatches without glue data remain unglued. Saved glue and solvent choices persist
+mmcefixes.config.meFluidBusBaseCapacity=ME fluid hatch base capacity
+mmcefixes.config.meFluidBusBaseCapacity.tooltip=Base capacity of each ME fluid hatch slot, in mB, before Capacity Cards. Each card multiplies capacity by 4, up to 2147483647
+mmcefixes.config.meGasBusBaseCapacity=ME gas hatch base capacity
+mmcefixes.config.meGasBusBaseCapacity.tooltip=Base capacity of each ME gas hatch slot before Capacity Cards. Each card multiplies capacity by 4, up to 2147483647
+mmcefixes.config.defaultPollingRate=Default ME polling interval
+mmcefixes.config.defaultPollingRate.tooltip=Default interval for ME hatches without a saved polling rate, in ticks. Set 0 for adaptive polling (please don't)
+mmcefixes.config.adaptivePollingMin=Fastest adaptive interval
+mmcefixes.config.adaptivePollingMin.tooltip=Fastest adaptive polling interval, in ticks, for ME hatches with a polling rate of 0
+mmcefixes.config.adaptivePollingMax=Slowest adaptive interval
+mmcefixes.config.adaptivePollingMax.tooltip=Slowest adaptive polling interval, in ticks. Uses at least the configured minimum
+mmcefixes.config.adaptivePollingWaitForSleep=Delay adaptive sleep until the slowest interval
+mmcefixes.config.adaptivePollingWaitForSleep.tooltip=Wait for the slowest adaptive interval before an idle hatch sleeps. Disable to sleep as soon as the hatch has no work
+mmcefixes.config.gluedHatches=Glued item hatches
+mmcefixes.config.gluedHatches.tooltip=Enable glued item hatches, glue and solvent. Requires restart
+mmcefixes.config.meFluidSize=ME fluid and gas hatch capacity
+mmcefixes.config.meFluidSize.tooltip=Enable configurable ME fluid and gas hatch capacity. Requires restart
+mmcefixes.config.mePolling=ME hatch polling and wake-up fixes
+mmcefixes.config.mePolling.tooltip=Enable ME hatch polling controls, wake-up fixes and input remainder fixes. Requires restart

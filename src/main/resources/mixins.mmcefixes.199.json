@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.mmcefixes.mixin",
+  "refmap": "${mixin_refmap}",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "polling.MixinMEMachineComponent",
+    "polling.MixinTileEntitySynchronized",
+    "polling.MixinFluidInventory",
+    "polling.MixinMEItemInputBus",
+    "polling.MixinMEItemOutputBus",
+    "polling.MixinMEFluidInputBus",
+    "polling.MixinMEFluidOutputBus",
+    "polling.MixinMEOutputBusBlock",
+    "polling.MixinMEOutputBusTicking",
+    "polling.MixinPktSwitchGuiMEOutputBus"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
