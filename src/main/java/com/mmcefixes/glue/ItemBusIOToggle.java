@@ -43,7 +43,8 @@ public class ItemBusIOToggle extends Item {
     public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos,
             EnumFacing facing, float hitX, float hitY, float hitZ, EnumHand hand) {
         TileEntity tile = world.getTileEntity(pos);
-        if (!(tile instanceof GluedBus)) return EnumActionResult.PASS;
+        if (!(tile instanceof GluedBus) || !GluedHatches.isSupportedTile(tile)) return EnumActionResult.PASS;
+        if (!GluedHatches.isSupportedBlock(world.getBlockState(pos).getBlock())) return EnumActionResult.PASS;
         if (!player.canPlayerEdit(pos, facing, player.getHeldItem(hand))) return EnumActionResult.FAIL;
 
         // Intercept the click before the bus GUI consumes it
