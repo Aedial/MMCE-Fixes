@@ -1,0 +1,1 @@
+Band-aid: <a href="https://www.flaticon.com/free-icons/band-aid" title="band aid icons">Band aid icons created by Magnific - Flaticon</a>
