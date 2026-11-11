@@ -23,6 +23,8 @@ public class MMCEFixesLateMixinLoader implements ILateMixinLoader {
             if (Loader.isModLoaded("theoneprobe")) configs.add(PREFIX + "201.top.json");
         }
 
+        if (MMCEFixesConfig.mixins.clientTasks) configs.add(PREFIX + "clienttasks.json");
+
         if (!Loader.isModLoaded("appliedenergistics2")) return configs;
 
         boolean gas = Loader.isModLoaded("mekeng") && Loader.isModLoaded("mekanism");

@@ -8,6 +8,10 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 - Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
 
+## [Unreleased]
+### Fixed
+- Fix MMCE leaking every visited world on clients connected to a remote server.
+
 ## [1.0.0] - 2026-11-05
 ### Added
 - Add glue and solvent to control automatic item hatch transfers.

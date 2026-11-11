@@ -77,5 +77,9 @@ public final class MMCEFixesConfig {
         @Config.Comment("Enable ME hatch polling settings and wake-up fixes. Requires restart.")
         @Config.LangKey("mmcefixes.config.mePolling")
         public boolean mePolling = true;
+
+        @Config.Comment("Drop MMCE main thread tasks on a client connected to a remote server, where they never run and leak worlds. Requires restart.")
+        @Config.LangKey("mmcefixes.config.clientTasks")
+        public boolean clientTasks = true;
     }
 }

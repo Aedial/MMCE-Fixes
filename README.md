@@ -17,6 +17,9 @@ Unlike the item ME hatches, the fluid/gas ME hatches have a somewhat limited siz
 ME Hatches are incredibly laggy because they poll their connected networks every few ticks or whenever the recipe finishes. This fix slightly optimize the polling, but mainly aims to reduce the overall performance impact by allowing the player to set a fixed polling rate. The fix also bundles various workarounds for ME buses not waking up properly on certain occasions. Do note that setting the polling rate to 0 disables the fixed polling rate and falls back to the original behavior.
 
 
+### Client world leak
+MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never ticks a server, so every task queued on it is kept forever, together with its machine and the world it is in. Over a long session with many dimension changes, this can fill the client heap. This fix drops those tasks when no server runs in the game, where they would never have run anyway. Singleplayer, LAN hosts and dedicated servers are unaffected.
+
 ## Configuration
 
 The mod includes a server-side configuration file with an in-game GUI editor:

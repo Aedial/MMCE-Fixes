@@ -43,3 +43,5 @@ mmcefixes.config.meFluidSize=ME fluid and gas hatch capacity
 mmcefixes.config.meFluidSize.tooltip=Enable configurable ME fluid and gas hatch capacity. Requires restart
 mmcefixes.config.mePolling=ME hatch polling and wake-up fixes
 mmcefixes.config.mePolling.tooltip=Enable ME hatch polling controls, wake-up fixes and input remainder fixes. Requires restart
+mmcefixes.config.clientTasks=Client world leak fix
+mmcefixes.config.clientTasks.tooltip=Drop MMCE main thread tasks on a client connected to a remote server, where they never run and keep every visited world in memory. Requires restart
