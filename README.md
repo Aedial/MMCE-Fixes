@@ -18,7 +18,7 @@ ME Hatches are incredibly laggy because they poll their connected networks every
 
 
 ### Client world leak
-MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never ticks a server, so every task queued on it is kept forever, together with its machine and the world it is in. Over a long session with many dimension changes, this can fill the client heap. This fix drops those tasks when no server runs in the game, where they would never have run anyway. Singleplayer, LAN hosts and dedicated servers are unaffected. This option is read from each client's own configuration, not from the server's.
+MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never ticks a server, so every task queued on it is kept, together with its machine and the world it is in, until a singleplayer world is opened in the same game, whose first tick then runs them against those stale machines. Over a long multiplayer session with many dimension changes, this can fill the client heap. This fix drops those tasks when no server runs in the game, so they are neither kept nor run late. Singleplayer, LAN hosts and dedicated servers are unaffected. This option is read from each client's own configuration, not from the server's.
 
 ## Configuration
 

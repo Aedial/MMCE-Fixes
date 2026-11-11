@@ -19,9 +19,10 @@ import com.mmcefixes.Tags;
 
 /**
  * TaskExecutor only drains its main thread queues from onServerTick. A client connected to a remote server never gets
- * a server tick, so every task queued there stays forever, and each one holds its tile entity and that tile's world.
- * This keeps every world in which a machine queued a task in memory. Without a server in this JVM the tasks could
- * never run anyway, so they are dropped instead of queued.
+ * a server tick, so every task queued there stays until a singleplayer world is opened in the same game (whose first
+ * tick then runs it against a stale tile), and each one holds its tile entity and that tile's world. This keeps every
+ * world in which a machine queued a task in memory. Without a server in this JVM the tasks are dropped instead of
+ * queued, so they are neither kept nor run late.
  *
  * <p>Singleplayer and LAN hosts keep MMCE's behavior: the integrated server object exists before its thread starts,
  * so no server world or tile can queue a task while the check reads null. Limit: tasks queued during the last tick
