@@ -78,7 +78,7 @@ public final class MMCEFixesConfig {
         @Config.LangKey("mmcefixes.config.mePolling")
         public boolean mePolling = true;
 
-        @Config.Comment("Drop MMCE main thread tasks on a client connected to a remote server, where they never run and leak worlds. Requires restart.")
+        @Config.Comment("Drop MMCE main thread tasks on a client connected to a remote server, where they never run and leak worlds. Read by each client. Requires restart.")
         @Config.LangKey("mmcefixes.config.clientTasks")
         public boolean clientTasks = true;
     }

@@ -18,11 +18,11 @@ ME Hatches are incredibly laggy because they poll their connected networks every
 
 
 ### Client world leak
-MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never ticks a server, so every task queued on it is kept forever, together with its machine and the world it is in. Over a long session with many dimension changes, this can fill the client heap. This fix drops those tasks when no server runs in the game, where they would never have run anyway. Singleplayer, LAN hosts and dedicated servers are unaffected.
+MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never ticks a server, so every task queued on it is kept forever, together with its machine and the world it is in. Over a long session with many dimension changes, this can fill the client heap. This fix drops those tasks when no server runs in the game, where they would never have run anyway. Singleplayer, LAN hosts and dedicated servers are unaffected. This option is read from each client's own configuration, not from the server's.
 
 ## Configuration
 
-The mod includes a server-side configuration file with an in-game GUI editor:
+The mod includes a configuration file with an in-game GUI editor:
 - **Individual features**: Each feature can be enabled or disabled independently.
 - **Glued by default**: Whether hatches are glued by default (default: false)
 - **ME Fluid Hatch base size**: The base size for fluid/gas ME hatches (default: 8 buckets)

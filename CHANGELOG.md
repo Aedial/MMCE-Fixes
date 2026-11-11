@@ -10,7 +10,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 ## [Unreleased]
 ### Fixed
-- Fix MMCE leaking every visited world on clients connected to a remote server.
+- Fix MMCE keeping worlds in memory on clients connected to a remote server.
 
 ## [1.0.0] - 2026-11-05
 ### Added
