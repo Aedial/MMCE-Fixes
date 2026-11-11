@@ -10,7 +10,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 ## [Unreleased]
 ### Fixed
-- Fix MMCE keeping worlds in memory on clients connected to a remote server.
+- Drop MMCE main thread tasks queued while connected to a remote server, which were kept with their worlds in memory.
 
 ## [1.0.0] - 2026-11-05
 ### Added
