@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import hellfirepvp.modularmachinery.common.lib.BlocksMM;
 
 import com.mmcefixes.Tags;
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 
 
 @Mod.EventBusSubscriber(modid = Tags.MODID, value = Side.CLIENT)
@@ -21,7 +21,7 @@ public final class GluedHatchesModels {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        if (!MMCEFixesConfig.mixins.gluedHatches) return;
+        if (!MMCEFixesCommonConfig.mixins.gluedHatches) return;
 
         ModelLoader.setCustomStateMapper(BlocksMM.itemInputBus, new GluedBusStateMapper("glued_input_bus"));
         ModelLoader.setCustomStateMapper(BlocksMM.itemOutputBus, new GluedBusStateMapper("glued_output_bus"));

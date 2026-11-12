@@ -16,17 +16,18 @@ Unlike the item ME hatches, the fluid/gas ME hatches have a somewhat limited siz
 ### [ME Hatches polling rate](https://github.com/NovaEngineering-Source/ModularMachinery-Community-Edition/pull/199)
 ME Hatches are incredibly laggy because they poll their connected networks every few ticks or whenever the recipe finishes. This fix slightly optimize the polling, but mainly aims to reduce the overall performance impact by allowing the player to set a fixed polling rate. The fix also bundles various workarounds for ME buses not waking up properly on certain occasions. Do note that setting the polling rate to 0 disables the fixed polling rate and falls back to the original behavior.
 
-
 ### Client world leak
-MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never ticks a server, so every task queued on it is kept, together with its machine and the world it is in, until a singleplayer world is opened in the same game, whose first tick then runs them against those stale machines. Over a long multiplayer session with many dimension changes, this can fill the client heap. This fix drops those tasks when no server runs in the game, so they are neither kept nor run late. Singleplayer, LAN hosts and dedicated servers are unaffected. This option is read from each client's own configuration, not from the server's.
+MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never triggers these server ticks locally, so queued tasks accumulate until the client eventually runs out of memory. These tasks also keep references to the machines and worlds they belong to, preventing these from being cleaned up when the player changes dimension or disconnects. Only remote clients (not singleplayer or LAN hosts) connected to a server are affected. This fix drops the tasks when relevant, instead of accumulating indefinitely.
 
 ## Configuration
 
-The mod includes a configuration file with an in-game GUI editor:
+The mod includes configuration files with an in-game GUI editor:
 - **Individual features**: Each feature can be enabled or disabled independently.
 - **Glued by default**: Whether hatches are glued by default (default: false)
 - **ME Fluid Hatch base size**: The base size for fluid/gas ME hatches (default: 8 buckets)
 - **ME Gas Hatch base size**: The base size for gas ME hatches (default: 8 buckets)
 - **ME Hatches default polling rate**: The default polling rate for ME hatches (default: 200 ticks). This offers a "better" default than the 5-ticks for fast recipes. You may change it to 1m or any other value according to your liking.
+
+Using the in-game configuration GUI will not automatically send the changes to the remote server, if you are using a dedicated server, so make sure to manually edit the Common configuration file (`config/mmcefixes.cfg`) on the hosting machine. It should be kept in sync with the client to ensure consistent behavior.
 
 ## Credits

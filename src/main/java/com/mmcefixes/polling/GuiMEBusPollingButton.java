@@ -8,7 +8,7 @@ import appeng.api.config.FullnessMode;
 import appeng.api.config.Settings;
 import appeng.client.gui.widgets.GuiImgButton;
 
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 
 
 public class GuiMEBusPollingButton extends GuiImgButton {
@@ -22,8 +22,8 @@ public class GuiMEBusPollingButton extends GuiImgButton {
     @Override
     public String getMessage() {
         int ticks = Math.max(0, rate.getAsInt());
-        int min = Math.max(1, MMCEFixesConfig.general.adaptivePollingMin);
-        int max = Math.max(min, MMCEFixesConfig.general.adaptivePollingMax);
+        int min = Math.max(1, MMCEFixesCommonConfig.general.adaptivePollingMin);
+        int max = Math.max(min, MMCEFixesCommonConfig.general.adaptivePollingMax);
         String current = ticks == 0
             ? I18n.format("mmcefixes.polling.current_adaptive", min, max)
             : I18n.format("mmcefixes.polling.current", PollingRateUtils.format(ticks));

@@ -11,15 +11,15 @@ import com.mmcefixes.Tags;
 
 @Mod.EventBusSubscriber(modid = Tags.MODID)
 @Config(modid = Tags.MODID, name = Tags.MODID, category = "")
-@Config.LangKey(Tags.MODID + ".config.title")
-public final class MMCEFixesConfig {
+@Config.LangKey(Tags.MODID + ".config.common")
+public final class MMCEFixesCommonConfig {
     @Config.LangKey("mmcefixes.config.general")
     public static GeneralCategory general = new GeneralCategory();
 
     @Config.LangKey("mmcefixes.config.mixins")
     public static MixinsCategory mixins = new MixinsCategory();
 
-    private MMCEFixesConfig() {}
+    private MMCEFixesCommonConfig() {}
 
     public static void load() {
         ConfigManager.sync(Tags.MODID, Config.Type.INSTANCE);
@@ -77,9 +77,5 @@ public final class MMCEFixesConfig {
         @Config.Comment("Enable ME hatch polling settings and wake-up fixes. Requires restart.")
         @Config.LangKey("mmcefixes.config.mePolling")
         public boolean mePolling = true;
-
-        @Config.Comment("Drop MMCE main thread tasks on a client connected to a remote server, where no server tick runs them and they leak worlds. Read by each client. Requires restart.")
-        @Config.LangKey("mmcefixes.config.clientTasks")
-        public boolean clientTasks = true;
     }
 }
