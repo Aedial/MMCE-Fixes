@@ -15,7 +15,7 @@ import hellfirepvp.modularmachinery.common.tiles.TileItemInputBus;
 import hellfirepvp.modularmachinery.common.tiles.TileItemOutputBus;
 
 import com.mmcefixes.Tags;
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 
 
 @Mod.EventBusSubscriber(modid = Tags.MODID)
@@ -38,7 +38,7 @@ public final class GluedHatches {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        if (!MMCEFixesConfig.mixins.gluedHatches) return;
+        if (!MMCEFixesCommonConfig.mixins.gluedHatches) return;
 
         glue = new ItemBusIOToggle(true, "tube_of_glue");
         solvent = new ItemBusIOToggle(false, "solvent");

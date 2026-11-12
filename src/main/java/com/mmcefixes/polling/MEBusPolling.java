@@ -11,13 +11,13 @@ import appeng.me.GridAccessException;
 import github.kasuminova.mmce.common.tile.base.MEMachineComponent;
 import hellfirepvp.modularmachinery.ModularMachinery;
 
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 import com.mmcefixes.duck.PollingBus;
 
 
 public final class MEBusPolling {
     private final MEMachineComponent host;
-    private int rate = Math.max(0, MMCEFixesConfig.general.defaultPollingRate);
+    private int rate = Math.max(0, MMCEFixesCommonConfig.general.defaultPollingRate);
     private boolean sleeping;
     private boolean pendingWakeUp;
     private boolean loggedWakeUpFailure;
@@ -49,9 +49,9 @@ public final class MEBusPolling {
             return new TickingRequest(rate, rate, false, true);
         }
 
-        int min = Math.max(1, MMCEFixesConfig.general.adaptivePollingMin);
-        int max = Math.max(min, MMCEFixesConfig.general.adaptivePollingMax);
-        sleeping = !MMCEFixesConfig.general.adaptivePollingWaitForSleep && !hasWork();
+        int min = Math.max(1, MMCEFixesCommonConfig.general.adaptivePollingMin);
+        int max = Math.max(min, MMCEFixesCommonConfig.general.adaptivePollingMax);
+        sleeping = !MMCEFixesCommonConfig.general.adaptivePollingWaitForSleep && !hasWork();
         return new TickingRequest(min, max, sleeping, true);
     }
 
@@ -72,9 +72,9 @@ public final class MEBusPolling {
         // Which would cause constant sleeping and waking if the speed is at the right interval,
         // negating the optimization that adaptive polling is supposed to provide
         // We only wake up on recipe completion if we're sleeping
-        int max = Math.max(1, Math.max(MMCEFixesConfig.general.adaptivePollingMin,
-            MMCEFixesConfig.general.adaptivePollingMax));
-        if (!MMCEFixesConfig.general.adaptivePollingWaitForSleep || ticksSinceLastCall >= max) {
+        int max = Math.max(1, Math.max(MMCEFixesCommonConfig.general.adaptivePollingMin,
+            MMCEFixesCommonConfig.general.adaptivePollingMax));
+        if (!MMCEFixesCommonConfig.general.adaptivePollingWaitForSleep || ticksSinceLastCall >= max) {
             sleeping = true;
             return TickRateModulation.SLEEP;
         }

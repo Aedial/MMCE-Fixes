@@ -68,11 +68,8 @@ public class MMCEFixesGuiFactory implements IModGuiFactory {
         private static List<IConfigElement> getConfigElements() {
             List<IConfigElement> elements = new ArrayList<>();
 
-            for (IConfigElement categoryElement : ConfigElement.from(MMCEFixesConfig.class).getChildElements()) {
-                if (categoryElement.getChildElements().isEmpty()) continue;
-
-                elements.add(categoryElement);
-            }
+            elements.add(ConfigElement.from(MMCEFixesCommonConfig.class));
+            elements.add(ConfigElement.from(MMCEFixesClientConfig.class));
 
             return elements;
         }

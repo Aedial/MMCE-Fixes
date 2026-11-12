@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 
 
 @Mod(
@@ -24,7 +24,7 @@ public class MMCEFixes {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        MMCEFixesConfig.load();
+        MMCEFixesCommonConfig.load();
         proxy.preInit();
     }
 }

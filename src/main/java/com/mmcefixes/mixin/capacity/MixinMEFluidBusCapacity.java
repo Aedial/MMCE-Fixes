@@ -14,7 +14,7 @@ import github.kasuminova.mmce.common.tile.base.MEFluidBus;
 import github.kasuminova.mmce.common.util.AEFluidInventoryUpgradeable;
 
 import com.mmcefixes.capacity.TankCapacity;
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 
 
 @Mixin(value = MEFluidBus.class, remap = false)
@@ -25,13 +25,13 @@ public abstract class MixinMEFluidBusCapacity {
 
     @ModifyConstant(method = "<init>", constant = @Constant(intValue = 8000))
     private int mmcefixes$baseCapacity(int original) {
-        return Math.max(1, MMCEFixesConfig.general.meFluidBusBaseCapacity);
+        return Math.max(1, MMCEFixesCommonConfig.general.meFluidBusBaseCapacity);
     }
 
     @Inject(method = "updateTankCapacity", at = @At("HEAD"), cancellable = true)
     private void mmcefixes$updateCapacity(CallbackInfo ci) {
         tanks.setCapacity(TankCapacity.calculate(
-            MMCEFixesConfig.general.meFluidBusBaseCapacity, getInstalledUpgrades(Upgrades.CAPACITY)));
+            MMCEFixesCommonConfig.general.meFluidBusBaseCapacity, getInstalledUpgrades(Upgrades.CAPACITY)));
         ci.cancel();
     }
 }
