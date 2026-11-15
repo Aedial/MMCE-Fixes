@@ -19,6 +19,9 @@ mmcefixes.polling.adaptive_warning=§eAdaptive polling is laggy, prefer a fixed 
 
 # Configs
 mmcefixes.config.title=MMCE Fixes Configuration
+
+mmcefixes.config.common=Common
+mmcefixes.config.common.tooltip=Settings controlled by both server and clients (should be kept in sync)
 mmcefixes.config.general=General
 mmcefixes.config.general.tooltip=General settings for item hatches and ME hatch polling and capacity
 mmcefixes.config.mixins=Features
@@ -43,3 +46,8 @@ mmcefixes.config.meFluidSize=ME fluid and gas hatch capacity
 mmcefixes.config.meFluidSize.tooltip=Enable configurable ME fluid and gas hatch capacity. Requires restart
 mmcefixes.config.mePolling=ME hatch polling and wake-up fixes
 mmcefixes.config.mePolling.tooltip=Enable ME hatch polling controls, wake-up fixes and input remainder fixes. Requires restart
+
+mmcefixes.config.client=Client
+mmcefixes.config.client.tooltip=Settings controlled by the individual clients
+mmcefixes.config.clientTasks=Client world leak fix
+mmcefixes.config.clientTasks.tooltip=Fix the client-side memory leak when connected to a remote server. Requires restart

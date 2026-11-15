@@ -11,15 +11,15 @@ import com.mmcefixes.Tags;
 
 @Mod.EventBusSubscriber(modid = Tags.MODID)
 @Config(modid = Tags.MODID, name = Tags.MODID, category = "")
-@Config.LangKey(Tags.MODID + ".config.title")
-public final class MMCEFixesConfig {
+@Config.LangKey(Tags.MODID + ".config.common")
+public final class MMCEFixesCommonConfig {
     @Config.LangKey("mmcefixes.config.general")
     public static GeneralCategory general = new GeneralCategory();
 
     @Config.LangKey("mmcefixes.config.mixins")
     public static MixinsCategory mixins = new MixinsCategory();
 
-    private MMCEFixesConfig() {}
+    private MMCEFixesCommonConfig() {}
 
     public static void load() {
         ConfigManager.sync(Tags.MODID, Config.Type.INSTANCE);

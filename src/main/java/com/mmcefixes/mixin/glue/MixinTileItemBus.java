@@ -13,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import hellfirepvp.modularmachinery.common.tiles.base.TileInventory;
 import hellfirepvp.modularmachinery.common.tiles.base.TileItemBus;
 
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 import com.mmcefixes.duck.GluedBus;
 import com.mmcefixes.glue.GluedHatches;
 
@@ -24,7 +24,7 @@ public abstract class MixinTileItemBus extends TileInventory implements GluedBus
     @Shadow protected boolean inventoryChanged;
 
     @Unique private boolean mmcefixes$glued =
-        GluedHatches.isSupportedTile(this) && MMCEFixesConfig.general.gluedByDefault;
+        GluedHatches.isSupportedTile(this) && MMCEFixesCommonConfig.general.gluedByDefault;
 
     @Override
     public boolean mmcefixes$isGlued() {

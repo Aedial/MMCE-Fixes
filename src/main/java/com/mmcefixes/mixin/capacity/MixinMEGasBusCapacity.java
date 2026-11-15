@@ -14,7 +14,7 @@ import com.mekeng.github.common.me.inventory.impl.GasInventory;
 import github.kasuminova.mmce.common.tile.base.MEGasBus;
 
 import com.mmcefixes.capacity.TankCapacity;
-import com.mmcefixes.config.MMCEFixesConfig;
+import com.mmcefixes.config.MMCEFixesCommonConfig;
 
 
 @Mixin(value = MEGasBus.class, remap = false)
@@ -25,13 +25,13 @@ public abstract class MixinMEGasBusCapacity {
 
     @ModifyConstant(method = "<init>", constant = @Constant(intValue = 8000))
     private int mmcefixes$baseCapacity(int original) {
-        return Math.max(1, MMCEFixesConfig.general.meGasBusBaseCapacity);
+        return Math.max(1, MMCEFixesCommonConfig.general.meGasBusBaseCapacity);
     }
 
     @Inject(method = "updateTankCapacity", at = @At("HEAD"), cancellable = true)
     private void mmcefixes$updateCapacity(CallbackInfo ci) {
         tanks.setCap(TankCapacity.calculate(
-            MMCEFixesConfig.general.meGasBusBaseCapacity, getInstalledUpgrades(Upgrades.CAPACITY)));
+            MMCEFixesCommonConfig.general.meGasBusBaseCapacity, getInstalledUpgrades(Upgrades.CAPACITY)));
         ci.cancel();
     }
 }
