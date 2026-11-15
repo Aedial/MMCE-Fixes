@@ -11,7 +11,6 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 ## [1.1.0] - 2026-11-15
 ### Added
 - Add a client config, for client-specific settings.
-
 - Add a client-side memory leak fix for MMCE tasks accumulating without clearing, when connected to a remote server.
 
 

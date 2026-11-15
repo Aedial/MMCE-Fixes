@@ -1,6 +1,6 @@
 # MMCE Fixes
 
-A MMCE addon bundling various fixes and improvements. This mod exists primarily because I do not want to become the maintainer for MMCE, but some issues make some feature unusable without severe drawbacks or workarounds. This mod only bundles *my* PRs (contributed 6 months ago) and may be safely removed when someone else merges them into MMCE proper.
+A MMCE addon bundling various fixes and improvements. This mod exists primarily because I do not want to become the maintainer for MMCE, but some issues make some feature unusable without severe drawbacks or workarounds. This mod only bundles *my* PRs (and freely contributed fixes), and may be safely removed when someone else merges them into MMCE proper.
 
 You MUST use a mixin loader, like [MixinBooter](https://www.curseforge.com/minecraft/mc-mods/mixin-booter) to use this mod. It will not work without one.
 
@@ -16,7 +16,7 @@ Unlike the item ME hatches, the fluid/gas ME hatches have a somewhat limited siz
 ### [ME Hatches polling rate](https://github.com/NovaEngineering-Source/ModularMachinery-Community-Edition/pull/199)
 ME Hatches are incredibly laggy because they poll their connected networks every few ticks or whenever the recipe finishes. This fix slightly optimize the polling, but mainly aims to reduce the overall performance impact by allowing the player to set a fixed polling rate. The fix also bundles various workarounds for ME buses not waking up properly on certain occasions. Do note that setting the polling rate to 0 disables the fixed polling rate and falls back to the original behavior.
 
-### Client world leak
+### Client world leak (by @Jacob-Lasky, see #1)
 MMCE runs its main thread tasks only from the server tick. A client connected to a remote server never triggers these server ticks locally, so queued tasks accumulate until the client eventually runs out of memory. These tasks also keep references to the machines and worlds they belong to, preventing these from being cleaned up when the player changes dimension or disconnects. Only remote clients (not singleplayer or LAN hosts) connected to a server are affected. This fix drops the tasks when relevant, instead of accumulating indefinitely.
 
 ## Configuration
